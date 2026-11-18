@@ -1,0 +1,22 @@
+{
+  "name": "html-excel-offline",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@univerjs/core": "1.5.2",
+    "@univerjs/engine-formula": "1.5.2",
+    "@univerjs/preset-sheets-core": "1.5.2",
+    "@univerjs/presets": "1.5.2",
+    "@univerjs/themes": "1.5.2",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "rxjs": "7.8.2"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.1"
+  }
+}

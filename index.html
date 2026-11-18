@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="connect-src 'none'">
+  <meta name="description" content="使用 Univer Sheets Core 的離線試算表。">
+  <title>html-excel｜試算表</title>
+  <link rel="stylesheet" href="assets/app.css">
+  <script defer src="assets/app.js"></script>
+  <script defer src="custom-functions.js"></script>
+</head>
+<body>
+  <header class="appbar">
+    <div class="identity">
+      <svg class="brand" viewBox="0 0 40 40" aria-hidden="true"><path d="M10 14h20v15H10zM10 19h20M17 14v15M23 14v15M10 24h20"/><path d="M10 10h11"/></svg>
+      <div class="book-identity">
+        <h1>html-excel</h1>
+        <form id="title-form">
+          <input id="title" value="未命名活頁簿" aria-label="活頁簿名稱" maxlength="100" autocomplete="off">
+          <span id="dirty" aria-label="尚未儲存" hidden></span>
+        </form>
+      </div>
+    </div>
+    <nav class="actions" aria-label="活頁簿工具">
+      <button id="new-book" class="app-button" type="button">新增</button>
+      <button id="open-book" class="app-button" type="button">開啟</button>
+      <button id="save-book" class="app-button primary" type="button">儲存活頁簿</button>
+      <button id="functions" class="app-button" type="button"><i aria-hidden="true">ƒx</i> 自訂函式</button>
+      <details id="more">
+        <summary aria-label="其他操作" title="其他操作">⋯</summary>
+        <div class="app-menu"><button id="example" class="app-button" type="button">開啟範例活頁簿</button></div>
+      </details>
+      <input type="file" id="book-file" accept=".json,application/json" hidden>
+    </nav>
+  </header>
+  <main class="app-workspace" aria-label="試算表編輯器">
+    <div id="univer-workspace"></div>
+    <p id="startup-status" role="status">載入試算表中…</p>
+  </main>
+  <footer id="status" class="app-status" role="status" aria-live="polite">載入中</footer>
+
+  <dialog id="function-dialog" aria-labelledby="function-title">
+    <div class="dialog-head">
+      <h2 id="function-title">自訂函式</h2>
+      <button id="close-functions" class="app-button" type="button" aria-label="關閉">×</button>
+    </div>
+    <div class="function-layout">
+      <section class="function-list" aria-label="已建立的函式">
+        <button id="reset-function" class="app-button outline" type="button">＋ 新增定義</button>
+        <div id="function-list"></div>
+      </section>
+      <form id="function-form">
+        <label for="function-name">名稱</label>
+        <input id="function-name" required maxlength="40" placeholder="NET" autocomplete="off">
+        <label for="function-params">參數（以逗號分隔）</label>
+        <input id="function-params" placeholder="price, rate" autocomplete="off">
+        <label for="function-expression">計算式</label>
+        <input id="function-expression" required maxlength="12000" placeholder="ROUND(price*(1-rate),0)" autocomplete="off">
+        <label for="function-test">測試參數</label>
+        <div class="test-input">
+          <input id="function-test" placeholder="100, 0.15" autocomplete="off">
+          <button id="test-function" class="app-button outline" type="button">試算</button>
+        </div>
+        <p id="function-message" role="status"></p>
+        <div class="dialog-actions">
+          <button id="remove-function" class="app-button danger" type="button" hidden>刪除</button>
+          <button class="app-button primary" type="submit">儲存至活頁簿</button>
+        </div>
+        <button id="export-functions" class="app-button outline" type="button">下載共用函式檔</button>
+      </form>
+    </div>
+  </dialog>
+</body>
+</html>

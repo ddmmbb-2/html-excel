@@ -1,0 +1,1 @@
+window.HtmlExcel.Formula.registerDefinitions([]);
