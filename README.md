@@ -2,7 +2,17 @@
 
 可離線開啟的繁體中文試算表，內建 Univer Sheets Core 1.5.2。
 
+👉 **線上體驗與完整包下載**：[https://office.ddmmbb.org/](https://office.ddmmbb.org/)
+
 ## 使用方式
+
+### 方式一：線上直接體驗（或下載完整套件）
+
+前往 **[HTML Office 網站](https://office.ddmmbb.org/)** 可直接在瀏覽器中線上體驗試算表，或一次下載包含五款工具的完整離線包（`html-office.zip`）。
+
+> **提示**：線上體驗存檔時僅會匯出 `.htmlsheet.json`。若日後需要於本機重新開啟與編輯，請下載完整壓縮包（含必要 JS/CSS 檔案）後解壓縮使用。
+
+### 方式二：本機解壓縮使用
 
 1. 將整個 ZIP 解壓縮。
 2. 用瀏覽器開啟 `index.html`。請保留旁邊的 `assets/` 和 `custom-functions.js`。
@@ -34,3 +44,13 @@
 ## 修改原始碼
 
 平常使用直接開啟 HTML。需要修改原始碼時，在專案目錄執行 `npm ci` 和 `npm run build`，重新產生 `assets/`。套件版本鎖在 `package-lock.json`。擴充方式見 [AGENTS.md](AGENTS.md)。相依套件授權見 [THIRD-PARTY.txt](assets/THIRD-PARTY.txt)。
+
+## HTML Office 系列專案
+
+HTML Office 將以下五個開源專案集結成單一資料夾，可於 [https://office.ddmmbb.org/](https://office.ddmmbb.org/) 線上體驗或一次下載離線使用：
+
+- **[html-excel](https://github.com/ddmmbb-2/html-excel)**（本專案）— 試算表編輯器
+- **[html-writer](https://github.com/ddmmbb-2/html-writer)** — 文件編輯器
+- **[html-slidebook](https://github.com/ddmmbb-2/html-slidebook)** — 簡報編輯器
+- **[html-image](https://github.com/ddmmbb-2/html-image)** — 圖片編輯器
+- **[html-keep](https://github.com/ddmmbb-2/html-keep)** — 口袋筆記 / 備忘錄
